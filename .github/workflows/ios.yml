@@ -8,7 +8,7 @@ on:
 jobs:
   build-ios:
     name: Build iOS App
-    runs-on: macos-latest  # GitHub automatically picks the latest macOS
+    runs-on: macos-latest
 
     steps:
       # 1️⃣ Checkout the repository
@@ -21,13 +21,7 @@ jobs:
         with:
           xcode-version: '26.1'   # Your Xcode version
 
-      # 3️⃣ Install CocoaPods (if used)
-      - name: Install CocoaPods
-        run: |
-          sudo gem install cocoapods
-          pod install --project-directory=.
-
-      # 4️⃣ Build the app for simulator
+      # 3️⃣ Build the app for simulator
       - name: Build iOS App
         run: |
           xcodebuild clean \
