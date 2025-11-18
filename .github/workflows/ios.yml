@@ -10,23 +10,27 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      # 1️⃣ Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Set up Xcode
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '26.1'
 
+      # 3️⃣ Build the app (simulator)
       - name: Build iOS App
         run: |
           xcodebuild clean \
-            -workspace project.xcworkspace \
+            -project ProjectYaari.xcodeproj \
             -scheme ProjectYaari \
             -sdk iphonesimulator \
             -configuration Debug \
             -derivedDataPath build
 
+      # 4️⃣ Upload build artifacts
       - name: Upload iOS Build Artifacts
         uses: actions/upload-artifact@v4
         with:
