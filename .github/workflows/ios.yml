@@ -7,7 +7,6 @@ on:
 
 jobs:
   build-ios:
-    name: Build iOS App
     runs-on: macos-latest
 
     steps:
@@ -22,11 +21,11 @@ jobs:
       - name: Build iOS App
         run: |
           xcodebuild clean \
-            -project ProjectYaari.xcodeproj \
+            -workspace project.xcworkspace \
             -scheme ProjectYaari \
             -sdk iphonesimulator \
             -configuration Debug \
-            build
+            -derivedDataPath build
 
       - name: Upload iOS Build Artifacts
         uses: actions/upload-artifact@v4
