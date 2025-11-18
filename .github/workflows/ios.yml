@@ -24,7 +24,7 @@ jobs:
             -project ProjectYaari.xcodeproj \
             -scheme ProjectYaari \
             -configuration Debug \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=17.0' \
+            -sdk iphonesimulator \
             -derivedDataPath build
           echo "Contents of build folder:"
           ls -R build
