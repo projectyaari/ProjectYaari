@@ -20,11 +20,11 @@ jobs:
 
       - name: Build iOS App
         run: |
-          xcodebuild clean \
+          xcodebuild clean build \
             -project ProjectYaari.xcodeproj \
             -scheme ProjectYaari \
-            -sdk iphonesimulator \
             -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=17.0' \
             -derivedDataPath build
           echo "Contents of build folder:"
           ls -R build
